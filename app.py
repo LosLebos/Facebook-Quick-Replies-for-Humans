@@ -17,7 +17,7 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello Worlds", 200
+    return "Hello Worlds next test", 200
 
 
 @app.route('/', methods=['POST'])
@@ -39,8 +39,8 @@ def webook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "Hier könnte Ihre Antwort stehen.")
-
+                    send_template(sender_id, "Hier könnte Ihre Antwort stehen.")
+                    
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
@@ -75,7 +75,7 @@ def send_template(recipient_id, message_text):
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text":"What do you want to do next?",
+                "text":message_text,
                 "buttons":[
                   {
                     "type":"web_url",
