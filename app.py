@@ -39,7 +39,7 @@ def webook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_template(sender_id, "Hier könnte Ihre Antwort stehen.")
+                    send_template(sender_id, "Hier koennte Ihre Antwort stehen.")
                     
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
